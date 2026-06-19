@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mia Dyachuk</title>
+<title>✨Mia Dyachuk✨</title>
 
 <style>
 body {
@@ -13,66 +13,100 @@ body {
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffffff, #ffe4f1, #f3f4f6);
-  color: #111;
+  background: radial-gradient(circle at top, #ffffff, #ffe4f1, #f3f4f6);
+  overflow: hidden;
+}
+
+/* soft glow background elements */
+body::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: pink;
+  filter: blur(120px);
+  opacity: 0.25;
+  top: -200px;
+  left: -200px;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #ff4fa3;
+  filter: blur(140px);
+  opacity: 0.2;
+  bottom: -200px;
+  right: -200px;
 }
 
 .card {
-  width: 370px;
+  width: 380px;
   text-align: center;
-  padding: 40px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  padding: 45px;
+  border-radius: 32px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 2;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ff4fa3;
-  box-shadow: 0 0 25px rgba(255,79,163,0.25);
+  box-shadow: 0 0 30px rgba(255,79,163,0.35);
   margin-bottom: 15px;
 }
 
 h1 {
   margin: 10px 0 5px;
-  font-size: 26px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
 }
 
 .sub {
   font-size: 13px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-/* ICON ROW */
-.icons {
+/* ICON ROW (4 IMAGE ICONS) */
+.icon-row {
   display: flex;
   justify-content: center;
-  gap: 18px;
-  margin: 10px 0 20px;
+  gap: 14px;
+  margin-bottom: 22px;
 }
 
 .icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  font-size: 20px;
   background: white;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: 0.25s;
 }
 
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
+  box-shadow: 0 15px 40px rgba(255,79,163,0.25);
 }
 
 /* BUTTONS */
@@ -81,20 +115,20 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin: 12px 0;
-  padding: 14px 16px;
+  padding: 15px 16px;
   border-radius: 18px;
   text-decoration: none;
   color: #111;
   background: white;
   border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
   transition: 0.25s;
   font-weight: 500;
 }
 
 .link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(255,79,163,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(255,79,163,0.2);
   border-color: #ff4fa3;
 }
 
@@ -109,25 +143,39 @@ h1 {
 
 <div class="card">
 
-  <img src="IMG_0365.jpg" class="avatar" />
+  <img src="photo.jpg" class="avatar" />
 
   <h1>Mia Dyachuk</h1>
-
   <p class="sub">exclusive content • personal moments</p>
 
-  <!-- ICONS BETWEEN TEXT AND BUTTONS -->
-  <div class="icons">
-    <a class="icon" href="https://www.instagram.com/iamdyachukk?igsh=MWV0ajB3d3lwa3BxMA==" target="_blank">📸</a>
-    <a class="icon" href="https://t.me/+uY-FtHCuM0hlNTIx" target="_blank">💬</a>
+  <!-- 4 ICONS (YOU INSERT IMAGE LINKS) -->
+  <div class="icon-row">
+
+    <a class="icon" href="YOUR_INSTAGRAM_LINK">
+      <img src="INSTAGRAM_ICON_IMAGE_URL" />
+    </a>
+
+    <a class="icon" href="YOUR_TIKTOK_LINK">
+      <img src="TIKTOK_ICON_IMAGE_URL" />
+    </a>
+
+    <a class="icon" href="YOUR_INSTAGRAM_LINK">
+      <img src="INSTAGRAM_ICON_IMAGE_URL" />
+    </a>
+
+    <a class="icon" href="YOUR_TIKTOK_LINK">
+      <img src="TIKTOK_ICON_IMAGE_URL" />
+    </a>
+
   </div>
 
-  <a class="link" href="https://www.instagram.com/iamdyachukk?igsh=MWV0ajB3d3lwa3BxMA==" target="_blank">
-    <span>📸 Instagram</span>
+  <a class="link" href="YOUR_INSTAGRAM_LINK">
+    <span>Instagram</span>
     <span class="small">my insta🤍</span>
   </a>
 
-  <a class="link" href="https://t.me/+uY-FtHCuM0hlNTIx" target="_blank">
-    <span>💬 Telegram</span>
+  <a class="link" href="YOUR_TIKTOK_LINK">
+    <span>Telegram</span>
     <span class="small">My private group💗</span>
   </a>
 
