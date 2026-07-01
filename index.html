@@ -1,39 +1,143 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mia Dyachuk</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#0f0f14;color:#fff;font-family:Arial,sans-serif;overflow-x:hidden}
-.hero{position:relative;height:58vh;min-height:420px;background:url('IMG_0365.jpg') center top/cover no-repeat}
-.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:65%;background:linear-gradient(to bottom,rgba(15,15,20,0),#0f0f14 90%);backdrop-filter:blur(10px)}
-.glow{position:absolute;width:500px;height:500px;border-radius:50%;background:#ff4fa344;filter:blur(120px);top:-120px;right:-100px}
-.wrap{max-width:480px;margin:-70px auto 60px;padding:24px;position:relative;z-index:2}
-.card{background:rgba(255,255,255,.08);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:34px;box-shadow:0 25px 80px rgba(0,0,0,.45)}
-h1{text-align:center;margin:0;font-size:42px}p{text-align:center;color:#cfcfd8}
-.btn{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:#fff;background:linear-gradient(135deg,#ff4fa3,#ff86c0);padding:18px 22px;border-radius:18px;margin:18px 0;font-weight:bold;transition:.25s}
-.btn:hover{transform:translateY(-3px)}
-.btn.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15)}
-.small{font-size:12px;color:#eee}
-.note{font-size:12px;color:#aaa;line-height:1.6}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:99}
-.box{max-width:420px;background:#18181f;border:1px solid #333;border-radius:24px;padding:30px;text-align:center}
-.box h2{margin-top:0}.confirm{display:block;margin-top:18px;background:#ff4fa3;color:#fff;text-decoration:none;padding:16px;border-radius:16px;font-weight:bold}
-</style></head>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mia Dyachuk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+            position: relative;
+        }
+
+        .background {
+            position: absolute;
+            inset: 0;
+            background-image: url('IMG_0365.jpg');
+            background-size: cover;
+            background-position: center top;
+            filter: blur(0px);
+            transition: filter 1.2s ease;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.15) 30%,
+                rgba(0, 0, 0, 0.75) 65%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 420px;
+            padding: 18px 28px;
+            margin: 12px 0;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-fanvue {
+            background: linear-gradient(90deg, #ff4fa3, #c026d3);
+            color: white;
+            box-shadow: 0 10px 30px -5px rgba(192, 38, 211, 0.5);
+        }
+
+        .btn-fanvue:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 20px 40px -5px rgba(192, 38, 211, 0.6);
+        }
+
+        .btn-telegram {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .btn-telegram:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-4px);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 24px;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            animation: modalPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
 <body>
-<div class="hero"><div class="glow"></div></div>
-<div class="wrap"><div class="card">
-<h1>Mia Dyachuk</h1>
-<p>exclusive content • personal moments</p>
-<a href="#" class="btn" id="fanvue"><span>Click here</span><span class="small">my little secret 🤍</span></a>
-<a href="https://t.me/+uY-FtHCuM0hlNTIx" class="btn secondary"><span>Telegram</span><span class="small">my private group 💗</span></a>
-<p class="note">*To join the Telegram group, tap the Telegram button above, then choose "Open in Browser" if needed.</p>
-</div></div>
-<div class="modal" id="modal"><div class="box">
-<h2>Adults Only (18+)</h2>
-<p>This page contains adult content. By continuing, you confirm that you are at least 18 years old and legally allowed to view this content.</p>
-<a class="confirm" href="https://www.fanvue.com/dyachuk_mia">I am 18+ — Continue</a>
-</div></div>
-<script>
-fanvue.onclick=e=>{e.preventDefault();modal.style.display='flex'}
-modal.onclick=e=>{if(e.target===modal)modal.style.display='none'}
-</script>
-</body></html>
+
+    <!-- Background -->
+    <div class="background" id="bg"></div>
