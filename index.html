@@ -16,14 +16,14 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Меняем на flex-start, чтобы при прокрутке на маленьких экранах контент не резался */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #0b090a;
   overflow-x: hidden;
   color: #ffffff;
 }
 
-/* Эффект дорогого фонового изображения с плавным размытием и растворением вниз */
+/* Эффект дорогого фонового изображения */
 .bg-image {
   position: fixed;
   top: 0;
@@ -35,7 +35,7 @@ body {
   z-index: 1;
 }
 
-/* Сложная маска: сверху фото четкое, к середине размывается и уходит в глубокий темный цвет */
+/* Маска: сверху фото полностью открыто, уходит в темный цвет только в самом низу */
 .bg-overlay {
   position: fixed;
   top: 0;
@@ -45,36 +45,37 @@ body {
   z-index: 2;
   background: linear-gradient(to bottom, 
     rgba(11, 9, 10, 0) 0%, 
-    rgba(11, 9, 10, 0.2) 20%, 
-    rgba(11, 9, 10, 0.6) 40%, 
-    rgba(11, 9, 10, 0.95) 70%, 
+    rgba(11, 9, 10, 0.1) 40%, 
+    rgba(11, 9, 10, 0.5) 65%, 
+    rgba(11, 9, 10, 0.95) 85%, 
     #0b090a 100%);
 }
 
-/* Динамическое размытие нижней части экрана */
+/* Размытие сдвинуто сильно вниз, чтобы не перекрывать лицо */
 .bg-blur-bottom {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 65%;
+  height: 45%; /* Уменьшили высоту размытия */
   z-index: 3;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%);
 }
 
-/* Контентная премиум-карта */
+/* Контентная карта опущена вниз */
 .card {
   width: 100%;
   max-width: 420px;
   text-align: center;
-  padding: 40px 24px;
+  padding: 40px 24px 60px 24px;
   position: relative;
   z-index: 10;
-  margin: 20px;
-  margin-top: 30vh;
+  margin: 0 auto;
+  margin-top: 58vh; /* Опустили кнопки значительно ниже, чтобы открыть фотку */
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -83,18 +84,18 @@ h1 {
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #ffffff;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .sub {
-  font-size: 11px; /* Уменьшили размер для идеального вмещения в одну строку */
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  white-space: nowrap; /* Запрет переноса строки */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  white-space: nowrap;
 }
 
 /* КНОПКИ */
@@ -112,7 +113,7 @@ h1 {
   font-size: 17px;
 }
 
-/* ГЛАВНАЯ КНОПКА: Сверх-акцент на Fanvue (Броская, более плотная, светящаяся) */
+/* Главная кнопка Fanvue */
 .link-fanvue {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.12);
@@ -128,7 +129,7 @@ h1 {
   box-shadow: 0 15px 35px rgba(255, 79, 163, 0.4);
 }
 
-/* ВТОРОСТЕПЕННАЯ КНОПКА: Telegram убран на второй план (Более прозрачный, спокойный) */
+/* Второстепенная кнопка Telegram */
 .link-telegram {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.03);
@@ -160,7 +161,7 @@ h1 {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* МОДАЛЬНОЕ ОКНО ВЕРИФИКАЦИИ (ПОЛНОСТЬЮ НА АНГЛИЙСКОМ, БЕЗ КНОПКИ НЕТ) */
+/* МОДАЛЬНОЕ ОКНО ВЕРИФИКАЦИИ */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -248,24 +249,20 @@ h1 {
 
 <body>
 
-<!-- Задний премиальный фон -->
 <div class="bg-image"></div>
 <div class="bg-overlay"></div>
 <div class="bg-blur-bottom"></div>
 
-<!-- Основная карта с контентом -->
 <div class="card">
 
   <h1>Mia Dyachuk</h1>
   <p class="sub">exclusive content • personal moments</p>
 
-  <!-- Приоритетная кнопка Fanvue (My Page) -->
   <a class="link link-fanvue" href="https://www.fanvue.com/dyachuk_mia" id="fanvueLink">
     <span>My Page</span>
     <span class="small">my little secret 🤍</span>
   </a>
 
-  <!-- Второстепенная кнопка Telegram -->
   <a class="link link-telegram" href="https://t.me/+uY-FtHCuM0hlNTIx">
     <span>Telegram</span>
     <span class="small">my private group 💗</span>
@@ -273,7 +270,6 @@ h1 {
 
 </div>
 
-<!-- Всплывающее окно верификации 18+ (Только подтверждение) -->
 <div class="modal-overlay" id="ageModal">
   <div class="modal-content">
     <h2>Are you 18 or older?</h2>
@@ -291,13 +287,11 @@ h1 {
   
   const targetUrl = fanvueLink.getAttribute('href');
 
-  // Открытие окна при клике на Fanvue
   fanvueLink.addEventListener('click', function(event) {
     event.preventDefault(); 
     ageModal.classList.add('active');
   });
 
-  // Редирект на Fanvue
   btnYes.addEventListener('click', function() {
     window.location.href = targetUrl;
   });
