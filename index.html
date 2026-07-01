@@ -1,181 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mia Dyachuk</title>
-
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #ffffff, #ffe4f1, #f3f4f6);
-  overflow: hidden;
-}
-
-/* soft glow background elements */
-body::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: pink;
-  filter: blur(120px);
-  opacity: 0.25;
-  top: -200px;
-  left: -200px;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: #ff4fa3;
-  filter: blur(140px);
-  opacity: 0.2;
-  bottom: -200px;
-  right: -200px;
-}
-
-.card {
-  width: 380px;
-  text-align: center;
-  padding: 45px;
-  border-radius: 32px;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(25px);
-  box-shadow: 0 25px 80px rgba(0,0,0,0.15);
-  border: 1px solid rgba(0,0,0,0.05);
-  position: relative;
-  z-index: 2;
-}
-
-.avatar {
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ff4fa3;
-  box-shadow: 0 0 30px rgba(255,79,163,0.35);
-  margin-bottom: 15px;
-}
-
-h1 {
-  margin: 10px 0 5px;
-  font-size: 28px;
-  letter-spacing: 0.5px;
-}
-
-.sub {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 18px;
-}
-
-/* ICON ROW (4 IMAGE ICONS) */
-.icon-row {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 22px;
-}
-
-.icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.25s;
-}
-
-.icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.icon:hover {
-  transform: scale(1.12);
-  box-shadow: 0 15px 40px rgba(255,79,163,0.25);
-}
-
-/* BUTTONS */
-.link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 12px 0;
-  padding: 15px 16px;
-  border-radius: 18px;
-  text-decoration: none;
-  color: #111;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-  transition: 0.25s;
-  font-weight: 500;
-}
-
-.link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 50px rgba(255,79,163,0.2);
-  border-color: #ff4fa3;
-}
-
-.small {
-  font-size: 12px;
-  color: #888;
-}
-</style>
-</head>
-
+*{box-sizing:border-box}body{margin:0;background:#0f0f14;color:#fff;font-family:Arial,sans-serif;overflow-x:hidden}
+.hero{position:relative;height:58vh;min-height:420px;background:url('IMG_0365.jpg') center top/cover no-repeat}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:65%;background:linear-gradient(to bottom,rgba(15,15,20,0),#0f0f14 90%);backdrop-filter:blur(10px)}
+.glow{position:absolute;width:500px;height:500px;border-radius:50%;background:#ff4fa344;filter:blur(120px);top:-120px;right:-100px}
+.wrap{max-width:480px;margin:-70px auto 60px;padding:24px;position:relative;z-index:2}
+.card{background:rgba(255,255,255,.08);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:34px;box-shadow:0 25px 80px rgba(0,0,0,.45)}
+h1{text-align:center;margin:0;font-size:42px}p{text-align:center;color:#cfcfd8}
+.btn{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:#fff;background:linear-gradient(135deg,#ff4fa3,#ff86c0);padding:18px 22px;border-radius:18px;margin:18px 0;font-weight:bold;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15)}
+.small{font-size:12px;color:#eee}
+.note{font-size:12px;color:#aaa;line-height:1.6}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:99}
+.box{max-width:420px;background:#18181f;border:1px solid #333;border-radius:24px;padding:30px;text-align:center}
+.box h2{margin-top:0}.confirm{display:block;margin-top:18px;background:#ff4fa3;color:#fff;text-decoration:none;padding:16px;border-radius:16px;font-weight:bold}
+</style></head>
 <body>
-
-<div class="card">
-
-  <img src="IMG_0365.jpg" class="avatar" />
-
-  <h1>Mia Dyachuk</h1>
-  <p class="sub">exclusive content • personal moments</p>
-
-  <!-- 4 ICONS (YOU INSERT IMAGE LINKS) -->
-  <div class="icon-row">
-
-    <a class="icon" href="https://www.fanvue.com/dyachuk_mia">
-      <img src="282100.png" />
-    </a>
-
-    <a class="icon" href="https://t.me/+uY-FtHCuM0hlNTIx">
-      <img src="telegram-logo-png-open-2000.png" />
-    </a>
-
-  </div>
-
-  <a class="link" href="https://www.fanvue.com/dyachuk_mia">
-    <span>Click here</span>
-    <span class="small">my little secret🤍</span>
-  </a>
-
-  <a class="link" href="https://t.me/+uY-FtHCuM0hlNTIx">
-    <span>Telegram</span>
-    <span class="small">my private group💗</span>
-  </a>
-
-<p style="margin-top:25px;font-size:12px;color:#8a8a8a;line-height:1.6;max-width:340px;text-align:center;font-style:italic;">
-  *To join the Telegram group, tap the “Telegram” button above ⬆️, then tap the three dots (•••) in the top-right corner and select “Open in Browser”.
-</p>
-
-</div>
-
-</body>
-</html>
+<div class="hero"><div class="glow"></div></div>
+<div class="wrap"><div class="card">
+<h1>Mia Dyachuk</h1>
+<p>exclusive content • personal moments</p>
+<a href="#" class="btn" id="fanvue"><span>Click here</span><span class="small">my little secret 🤍</span></a>
+<a href="https://t.me/+uY-FtHCuM0hlNTIx" class="btn secondary"><span>Telegram</span><span class="small">my private group 💗</span></a>
+<p class="note">*To join the Telegram group, tap the Telegram button above, then choose "Open in Browser" if needed.</p>
+</div></div>
+<div class="modal" id="modal"><div class="box">
+<h2>Adults Only (18+)</h2>
+<p>This page contains adult content. By continuing, you confirm that you are at least 18 years old and legally allowed to view this content.</p>
+<a class="confirm" href="https://www.fanvue.com/dyachuk_mia">I am 18+ — Continue</a>
+</div></div>
+<script>
+fanvue.onclick=e=>{e.preventDefault();modal.style.display='flex'}
+modal.onclick=e=>{if(e.target===modal)modal.style.display='none'}
+</script>
+</body></html>
