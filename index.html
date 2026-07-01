@@ -284,11 +284,10 @@ h1 {
 <!-- Всплывающее окно верификации 18+ -->
 <div class="modal-overlay" id="ageModal">
   <div class="modal-content">
-    <h2>Вам уже исполнилось 18 лет?</h2>
-    <p>Этот профиль содержит эксклюзивный контент, предназначенный строго для взрослой аудитории. Пожалуйста, подтвердите свой возраст.</p>
+    <h2>Are you already 18 years old?</h2>
+    <p>This profile contains exclusive content intended for adults only. Please verify that you are 18 years of age or older.</p>
     <div class="modal-buttons">
-      <button class="modal-btn btn-confirm" id="btnYes">Да, мне есть 18</button>
-      <button class="modal-btn btn-cancel" id="btnNo">Нет</button>
+      <button class="modal-btn btn-confirm" id="btnYes">Yes, I am 18 or older</button>
     </div>
   </div>
 </div>
@@ -313,10 +312,6 @@ h1 {
     window.location.href = targetUrl;
   });
 
-  // Если "Нет", закрываем модальное окно
-  btnNo.addEventListener('click', function() {
-    ageModal.classList.remove('active');
-  });
 </script>
 
 </body>
